@@ -3,33 +3,12 @@ import { imgRectangle12 } from "../svg-3mfyb";
 import imgBg from "./assets/imgBg.png";
 import imgPortraitImage from "./assets/imgPortraitImage.png";
 import "./BasicCard.css";
-import type { TypeName } from "./components/card/types";
-import { AttackEnergy } from "./components/card/AttackEnergy/AttackEnergy";
+import { Attack } from "./components/card/Attack/Attack";
 import { HpBadge } from "./components/card/HpBadge/HpBadge";
 import { RarityMark } from "./components/card/RarityMark/RarityMark";
 import { RegulationMark } from "./components/card/RegulationMark/RegulationMark";
 import { SetMark } from "./components/card/SetMark/SetMark";
 import { StagePill } from "./components/card/StagePill/StagePill";
-
-interface IAttackProps {
-  name: string;
-  description?: string;
-  damage?: string;
-  energyCount: 1 | 2;
-  energyType?: TypeName;
-}
-
-function Attack({ name, description, damage, energyCount, energyType }: IAttackProps) {
-  const variant = description ? "attack--withDescription" : "attack--basic";
-  return (
-    <div className={`attack ${variant}`}>
-      <p className={"attack__name"}>{name}</p>
-      {description && <p className={"attack__description"}>{description}</p>}
-      {damage && <p className={"attack__damage"}>{damage}</p>}
-      <AttackEnergy className={"attack__energy"} count={energyCount} type={energyType} />
-    </div>
-  );
-}
 
 interface IBasicCardProps {
   className?: string;
@@ -265,11 +244,14 @@ export default function BasicCard({ className, attackFrame = null, portrait = nu
         {attackFrame || (
           <>
             <Attack
+              variant="combo"
               name="Colorful Palette"
               description="Look at the top 5 cards of your deck. You may attach any number of basic Energy cards you find there to 1 of your Pokémon. Shuffle the other cards back into your deck."
+              damage=""
               energyCount={1}
+              energyType="Normal"
             />
-            <Attack name="Ram" damage="30" energyCount={2} />
+            <Attack variant="basic" name="Ram" damage="30" energyCount={2} energyType="Normal" />
           </>
         )}
       </div>

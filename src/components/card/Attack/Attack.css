@@ -1,0 +1,89 @@
+@reference "../../../index.css";
+
+@scope (.attack) {
+  :scope {
+    @apply relative shrink-0;
+    inline-size: 618px;
+  }
+
+  .attack__name {
+    @apply absolute text-center;
+    block-size: 40px;
+    color: #000;
+    font-family: var(--font-gill-sans);
+    font-size: 39px;
+    font-style: normal;
+    inline-size: 390px;
+    inset-block-start: 7px;
+    inset-inline-start: calc(50% + 20px);
+    line-height: normal;
+    transform: translateX(-50%);
+  }
+
+  .attack__description {
+    @apply absolute;
+    block-size: 82px;
+    color: #000;
+    font-family: var(--font-gill-sans);
+    font-size: 26px;
+    font-style: normal;
+    inline-size: 618px;
+    inset-block-start: 49px;
+    inset-inline-start: calc(50% - 309px);
+    line-height: 29px;
+  }
+
+  .attack__damage {
+    @apply absolute text-right;
+    block-size: 40px;
+    color: #000;
+    font-family: var(--font-gill-sans);
+    font-size: 39px;
+    font-style: normal;
+    inline-size: 82px;
+    inset-block-start: 7px;
+    inset-inline-start: calc(50% + 309px);
+    line-height: normal;
+    transform: translateX(-100%);
+  }
+
+  .attack__energy {
+    @apply absolute;
+    block-size: 40px;
+    inline-size: 172px;
+    inset-block-start: 0;
+    inset-inline-start: calc(50% - 223px);
+    transform: translateX(-50%);
+  }
+
+  :scope.attack--basic {
+    block-size: 47px;
+  }
+
+  :scope.attack--basic .attack__name {
+    inline-size: 296px;
+    inset-inline-start: calc(50% + 19px);
+  }
+
+  :scope.attack--combo,
+  :scope.attack--condition {
+    block-size: 131px;
+  }
+
+  :scope.attack--ability {
+    block-size: 131px;
+  }
+
+  .attack__abilityTag {
+    @apply inline-block rounded-full text-white font-bold;
+    padding: 0.15rem 0.5rem;
+    font-size: 1rem;
+    background: #9c1821;
+  }
+
+  .attack__abilityName {
+    color: #9c1821;
+    font-family: var(--font-gill-sans);
+    font-weight: 700;
+  }
+}
