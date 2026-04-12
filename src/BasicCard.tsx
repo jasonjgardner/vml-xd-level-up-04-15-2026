@@ -4,6 +4,7 @@ import imgBg from "./assets/imgBg.png";
 import imgPortraitImage from "./assets/imgPortraitImage.png";
 import "./BasicCard.css";
 import type { TypeName } from "./components/card/types";
+import { HpBadge } from "./components/card/HpBadge/HpBadge";
 import { TypeBadge } from "./components/card/TypeBadge/TypeBadge";
 
 interface IAttackEnergyProps {
@@ -456,9 +457,7 @@ export default function BasicCard({ className, attackFrame = null, portrait = nu
             </p>
           </div>
         </div>
-        <div className={"card__hpBadge"} data-name="Pokemon Type">
-          <HpBadge />
-        </div>
+        <HpBadge type="Normal" />
       </div>
 
       {/* Name */}
@@ -539,46 +538,6 @@ function StageLetter({ x, y, width, height, path, viewBox, insetClass }: IStageL
         </svg>
       </div>
     </div>
-  );
-}
-
-function HpBadge() {
-  return (
-    <>
-      <div className={"card__hpBadgeBase"}>
-        <svg className={"card__svgFill"} fill="none" preserveAspectRatio="none" viewBox="0 0 57 57">
-          <g>
-            <g filter="url(#filter0_i_1_539)">
-              <circle cx="28.5" cy="28.5" fill="black" r="24.5" />
-              <circle cx="28.5" cy="28.5" fill="url(#paint0_radial_1_539)" r="24.5" />
-            </g>
-            <circle cx="28.5" cy="28.5" r="26.5" stroke="white" strokeWidth="4" />
-          </g>
-          <defs>
-            <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="57" id="filter0_i_1_539" width="57" x="0" y="0">
-              <feFlood floodOpacity="0" result="BackgroundImageFix" />
-              <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
-              <feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-              <feMorphology in="SourceAlpha" operator="erode" radius="2" result="effect" />
-              <feOffset />
-              <feGaussianBlur stdDeviation="2" />
-              <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic" />
-              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" />
-              <feBlend in2="shape" mode="overlay" result="effect" />
-            </filter>
-            <radialGradient cx="0" cy="0" gradientTransform="translate(23.9868 23.3421) rotate(48.3665) scale(31.0546)" gradientUnits="userSpaceOnUse" id="paint0_radial_1_539" r="1">
-              <stop offset="0.232381" stopColor="white" />
-              <stop offset="0.699526" stopColor="#DAD1C9" />
-            </radialGradient>
-          </defs>
-        </svg>
-      </div>
-      <div className={"type__symbol"} data-name="Symbol" style={{ inset: "10.53% 15.81%", position: "absolute" }}>
-        <svg className={"card__svgAbsFill"} fill="none" preserveAspectRatio="none" viewBox="0 0 33.5015 38.6842">
-          <path d={svgPaths.p6185800} fill="black" />
-        </svg>
-      </div>
-    </>
   );
 }
 

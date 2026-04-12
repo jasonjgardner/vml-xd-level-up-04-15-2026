@@ -1,0 +1,20 @@
+@reference "../../../index.css";
+
+@scope (.card__hpBadge) {
+  :scope {
+    position: relative;
+    block-size: 100%;
+    inline-size: 100%;
+  }
+
+  .card__hpBadgeBase {
+    @apply absolute;
+    inset: -8.16%;
+  }
+
+  .card__hpBadgeSymbol {
+    /* Inline style on JSX (inset: 10.53% 15.81%, position: absolute) supplies
+       the symbol offsets directly; this class is reserved for future per-size
+       adjustments. */
+  }
+}

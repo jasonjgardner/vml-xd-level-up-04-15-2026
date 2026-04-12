@@ -215,11 +215,6 @@
   inset-inline-start: 102px;
 }
 
-.card__hpBadgeBase {
-  @apply absolute;
-  inset: -8.16%;
-}
-
 /* ---------- Name (e.g. "Smeargle") ---------- */
 
 .card__name {
