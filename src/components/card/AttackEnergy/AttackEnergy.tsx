@@ -14,8 +14,9 @@ export interface IAttackEnergyProps {
  */
 export function AttackEnergy({ className, count, type = "Normal" }: IAttackEnergyProps) {
   const slots = Array.from({ length: count }, (_, i) => i);
+  const cls = className ? `attackEnergy ${className}` : "attackEnergy";
   return (
-    <div className={className || "attackEnergy"} data-count={count}>
+    <div className={cls} data-count={count}>
       {slots.map((i) => (
         <TypeBadge key={i} className="attackEnergy__slot" type={type} />
       ))}

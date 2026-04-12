@@ -1,12 +1,15 @@
 @reference "../../../index.css";
 
-@scope (.attackEnergy) {
-  :scope {
-    @apply relative;
-    block-size: 40px;
-    inline-size: 172px;
-  }
+/* Default position/size for `.attackEnergy`. Zero-specificity via :where()
+   so consumer classes like `.attack__energy` (absolute positioning inside
+   an Attack row) win without needing !important or doubled selectors. */
+:where(.attackEnergy) {
+  position: relative;
+  block-size: 40px;
+  inline-size: 172px;
+}
 
+@scope (.attackEnergy) {
   .attackEnergy__slot {
     @apply absolute;
     block-size: 38px;

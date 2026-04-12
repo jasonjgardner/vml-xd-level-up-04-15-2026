@@ -3,17 +3,21 @@
 /* ============================================================
    Type — reusable energy-type badge
    Variant styling is driven by `data-type` so the TSX stays lean.
-   Size is inherited from the consuming slot (e.g. `.attackEnergy__slot`,
-   `.card__retreatCostType`, `.card__weaknessType`, or a Storybook
-   decorator). `:scope` supplies `position: relative` so internal
-   absolutely-positioned children can anchor to the badge.
+   Consumers (`.attackEnergy__slot`, `.card__retreatCostType`,
+   `.card__weaknessType`, or a Storybook decorator) provide the
+   outer position + size. The :where() fallback supplies default
+   `position: relative` and 38×38 sizing for standalone usage
+   without overriding consumer rules.
    ============================================================ */
 
-@scope (.type) {
-  :scope {
-    position: relative;
-  }
+/* Default size + position for standalone `.type` (no slot class). */
+:where(.type) {
+  position: relative;
+  block-size: 38px;
+  inline-size: 38px;
+}
 
+@scope (.type) {
   .type__ring {
     @apply absolute;
     inset: -3.95%;
@@ -43,11 +47,4 @@
     @apply absolute;
     inset: 18.42% 7.89%;
   }
-}
-
-/* Default badge size for standalone / story usage. Parent slot classes
-   (e.g. `.attackEnergy__slot`, `.card__retreatCostType`) override this. */
-.type:where(:not([class*=" card__"]):not([class*="attackEnergy__"])) {
-  block-size: 38px;
-  inline-size: 38px;
 }
