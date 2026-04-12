@@ -1,22 +1,25 @@
+import type { ReactNode } from "react";
 import svgPaths from "../../../../svg-2xxt8uep3y";
 import "./PortraitFrame.css";
 
 export interface IPortraitFrameProps {
   className?: string;
-  portraitSrc: string;
+  /** Media slot — any `<img>`, `<video>`, or custom node to fill the portrait area. */
+  children?: ReactNode;
 }
 
 /**
- * Portrait image slot + surrounding metallic frame with drop-shadow.
+ * Portrait media slot + surrounding metallic frame with drop-shadow.
  * Renders as a fragment — the slot and frame each position themselves
- * against the card artboard.
+ * against the card artboard. Any `<img>` or `<video>` passed as children
+ * is auto-fitted to cover the slot via component-scoped CSS.
  */
-export function PortraitFrame({ className, portraitSrc }: IPortraitFrameProps) {
+export function PortraitFrame({ className, children }: IPortraitFrameProps) {
   return (
     <>
       <div className="card__portraitSlot" data-name="Portrait Image">
         <div className="card__portraitSlotBg" />
-        <img alt="" className="card__portraitSlotImg" src={portraitSrc} />
+        {children}
       </div>
       <div
         className={className ? `card__portraitFrame ${className}` : "card__portraitFrame"}

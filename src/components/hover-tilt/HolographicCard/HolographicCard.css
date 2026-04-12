@@ -1,0 +1,176 @@
+@reference "../../../index.css";
+
+/* ============================================================
+   HolographicCard
+   Pokéball-style foil overlay for BasicCard. Driven by:
+     1. hover-tilt custom properties on ::slotted(*):
+          --hover-tilt-x, --hover-tilt-y  (0..1)
+          --hover-tilt-opacity             (0..1 on hover)
+          --hover-tilt-from-center         (px distance)
+     2. data-holo-* attributes on .holographic-card, read with
+        Baseline 2026 `attr(name type(<number>), fallback)`.
+   All numeric knobs have CSS fallbacks, so omitted props keep
+   sensible defaults.
+   ============================================================ */
+
+@property --holo-card-opacity {
+  inherits: true;
+  initial-value: 0;
+  syntax: "<number>";
+}
+
+@property --holo-pointer-from-center {
+  inherits: true;
+  initial-value: 0;
+  syntax: "<number>";
+}
+
+@layer components {
+  .holographic-card {
+    /* ---- Tuning knobs (data-holo-* → attr()) ---------------- */
+    --holo-shine: attr(data-holo-shine type(<number>), 0.8);
+    --holo-inner-brightness: attr(data-holo-inner-brightness type(<number>), 0.7);
+    --holo-outer-brightness: attr(data-holo-outer-brightness type(<number>), 0.55);
+    --holo-rainbow-saturation: attr(data-holo-rainbow-saturation type(<number>), 1.1);
+    --holo-tile-size: attr(data-holo-tile-size type(<length-percentage>), 20%);
+
+    /* ---- Sunpillar rainbow palette -------------------------- */
+    --sunpillar-1: hsl(2 100% 73%);
+    --sunpillar-2: hsl(53 100% 69%);
+    --sunpillar-3: hsl(93 100% 69%);
+    --sunpillar-4: hsl(176 100% 76%);
+    --sunpillar-5: hsl(228 100% 74%);
+    --sunpillar-6: hsl(283 100% 73%);
+
+    /* ---- Pointer plumbing ----------------------------------- */
+    --pointer-x: calc(var(--hover-tilt-x, 0.5) * 100%);
+    --pointer-y: calc(var(--hover-tilt-y, 0.5) * 100%);
+    --holo-card-opacity: var(--hover-tilt-opacity, 0);
+    --holo-pointer-from-center: clamp(
+      0,
+      calc(var(--hover-tilt-from-center, 0px) / 400px),
+      1
+    );
+
+    block-size: 1024px;
+    border-radius: 35px;
+    inline-size: 733px;
+    isolation: isolate;
+    overflow: clip;
+    position: relative;
+  }
+
+  .holographic-card > .card {
+    inset: 0;
+    position: absolute;
+  }
+
+  /* ---- Base shine + two rainbow foil pseudos ---------------- */
+  .holographic-card__shine {
+    background: linear-gradient(
+      45deg,
+      hsl(0 0% calc(var(--holo-shine) * 50%)) 15%,
+      hsl(0 0% calc(var(--holo-shine) * 25%)) 45%,
+      hsl(0 0% calc(var(--holo-shine) * 25%)) 55%,
+      hsl(0 0% calc(var(--holo-shine) * 50%)) 85%
+    );
+    background-position: var(--pointer-x) var(--pointer-y);
+    background-size: 200%;
+    border-radius: 35px;
+    filter: brightness(0.75) contrast(1) saturate(1);
+    inset: 0;
+    mix-blend-mode: color-dodge;
+    opacity: var(--holo-card-opacity);
+    pointer-events: none;
+    position: absolute;
+    z-index: 4;
+
+    /* Shared pseudo framing — both rainbow layers share background
+       sizing, mask size / position, and rounded corners. */
+    &::before,
+    &::after {
+      background-position: var(--pointer-x) var(--pointer-y);
+      background-size: 200% 200%;
+      border-radius: 35px;
+      content: "";
+      inset: 0;
+      mask-mode: alpha;
+      mask-position: 0 0;
+      mask-repeat: repeat;
+      mask-size: var(--holo-tile-size) auto;
+      pointer-events: none;
+      position: absolute;
+    }
+
+    /* ::after — OUTER pokéball ring, spotlight-subtract mask so the
+       rainbow reveals around the glare hotspot, not under it. */
+    &::after {
+      background-image: linear-gradient(
+        45deg,
+        var(--sunpillar-4),
+        var(--sunpillar-5),
+        var(--sunpillar-6),
+        var(--sunpillar-1),
+        var(--sunpillar-2),
+        var(--sunpillar-3),
+        var(--sunpillar-4),
+        var(--sunpillar-5),
+        var(--sunpillar-6),
+        var(--sunpillar-1),
+        var(--sunpillar-2),
+        var(--sunpillar-3),
+        var(--sunpillar-4)
+      );
+      filter: brightness(var(--holo-outer-brightness)) contrast(1.8)
+        saturate(
+          calc(var(--holo-pointer-from-center) * var(--holo-rainbow-saturation) + 0.3)
+        );
+      mask-composite: subtract;
+      mask-image: var(--pokeball-outer),
+        radial-gradient(
+          farthest-corner at var(--pointer-x) var(--pointer-y),
+          hsl(0 0% 100%) 20%,
+          transparent 80%
+        );
+      mask-position: 0 0, center center;
+      mask-repeat: repeat, no-repeat;
+      mask-size: var(--holo-tile-size) auto, cover;
+      mix-blend-mode: plus-lighter;
+      opacity: var(--holo-card-opacity);
+    }
+
+    /* ::before — INNER pokéball core, no spotlight cut; softer
+       `lighten` blend so the center feels glossy, not strobey. */
+    &::before {
+      background-image: linear-gradient(
+        225deg,
+        var(--sunpillar-4),
+        var(--sunpillar-5),
+        var(--sunpillar-6),
+        var(--sunpillar-1),
+        var(--sunpillar-2),
+        var(--sunpillar-3),
+        var(--sunpillar-4),
+        var(--sunpillar-5),
+        var(--sunpillar-6),
+        var(--sunpillar-1),
+        var(--sunpillar-2),
+        var(--sunpillar-3),
+        var(--sunpillar-4)
+      );
+      filter: brightness(var(--holo-inner-brightness)) contrast(2)
+        saturate(
+          calc(var(--holo-pointer-from-center) * var(--holo-rainbow-saturation) + 0.3)
+        );
+      mask-image: var(--pokeball-inner);
+      mix-blend-mode: lighten;
+      opacity: calc(var(--holo-card-opacity) + var(--holo-pointer-from-center) - 0.25);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .holographic-card__shine {
+      transition: none;
+    }
+  }
+}

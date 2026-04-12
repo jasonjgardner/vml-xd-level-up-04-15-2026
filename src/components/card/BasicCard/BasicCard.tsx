@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { ICardData } from "../types";
 import { SMEARGLE_DATA } from "../smeargle";
 import { CardSurface } from "../CardSurface/CardSurface";
@@ -13,19 +14,22 @@ import "./BasicCard.css";
 export interface IBasicCardProps {
   className?: string;
   data?: Partial<ICardData>;
+  /** Optional portrait slot override (e.g. `<video>`). Falls back to `<img src={data.portraitSrc}>`. */
+  portrait?: ReactNode;
 }
 
 /**
  * Composed Pokémon card. Accepts a partial ICardData; any missing fields fall
  * back to SMEARGLE_DATA so `<BasicCard />` with no props renders the canonical
- * Smeargle test card.
+ * Smeargle test card. A custom `portrait` node may be passed to swap in video
+ * or other media in place of the default image.
  */
-export function BasicCard({ className, data }: IBasicCardProps) {
+export function BasicCard({ className, data, portrait }: IBasicCardProps) {
   const d: ICardData = { ...SMEARGLE_DATA, ...data };
   return (
     <div className={className || "card"} data-name="Basic Card">
       <CardSurface bgSrc={d.bgSrc} holoMaskSrc={d.holoMaskSrc} />
-      <PortraitFrame portraitSrc={d.portraitSrc} />
+      <PortraitFrame>{portrait ?? <img alt="" src={d.portraitSrc} />}</PortraitFrame>
       <NameHeader name={d.name} hp={d.hp} type={d.type} />
       <StagePill stage={d.stage} evolvesFrom={d.evolvesFrom} evolvesFromPortraitSrc={d.evolvesFromPortraitSrc} />
       <SpeciesStrip
