@@ -131,42 +131,11 @@
 
 /* ---------- Species strip (NO. 235 / Painter Pokémon / HT / WT) ---------- */
 
+/* Outer positioning lives on the card; internals are scoped in
+   components/card/SpeciesStrip/SpeciesStrip.css via @scope (.card__speciesStrip). */
 .card__speciesStrip {
   @apply absolute;
   inset: 47.66% 4.71% 49.61% 5.73%;
-}
-
-.card__speciesStripShadow {
-  @apply absolute;
-  inset-block-end: -14.29%;
-  inset-block-start: 0;
-  inset-inline-end: -0.61%;
-  inset-inline-start: 0;
-}
-
-.card__speciesStripText {
-  @apply absolute content-stretch flex gap-[11px] items-center justify-center overflow-clip whitespace-nowrap;
-  color: #434345;
-  font-style: normal;
-  inset: 28.57% 10.97% 17.86% 9.37%;
-  line-height: normal;
-}
-
-.card__speciesItem {
-  @apply relative shrink-0;
-  font-family: var(--font-gill-sans);
-  font-size: 15px;
-  line-height: normal;
-}
-
-.card__speciesItem--number {
-  font-family: var(--font-gill-sans);
-  font-size: 0;
-  line-height: 0;
-}
-
-.card__speciesItem--species {
-  letter-spacing: 0.45px;
 }
 
 /* ---------- HP & type badge (top-right) ---------- */

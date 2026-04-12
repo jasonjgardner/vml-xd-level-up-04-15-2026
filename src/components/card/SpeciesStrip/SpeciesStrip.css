@@ -1,0 +1,72 @@
+@reference "../../../index.css";
+
+/* ============================================================
+   SpeciesStrip — metallic horizontal bar beneath the portrait
+   frame (NO. / category / HT / WT). The outer
+   `.card__speciesStrip` positioning lives in BasicCard.css; this
+   file owns the internal layout, the shadow SVG wrapper, and the
+   text row. The `radiant` variant adds a holographic rule banner
+   below the main strip.
+   ============================================================ */
+
+@scope (.card__speciesStrip) {
+  .card__speciesStripShadow {
+    @apply absolute;
+    inset-block-end: -14.29%;
+    inset-block-start: 0;
+    inset-inline-end: -0.61%;
+    inset-inline-start: 0;
+  }
+
+  .card__speciesStripText {
+    @apply absolute content-stretch flex gap-[11px] items-center justify-center overflow-clip whitespace-nowrap;
+    color: #434345;
+    font-style: normal;
+    inset: 28.57% 10.97% 17.86% 9.37%;
+    line-height: normal;
+  }
+
+  .card__speciesItem {
+    @apply relative shrink-0;
+    font-family: var(--font-gill-sans);
+    font-size: 15px;
+    line-height: normal;
+  }
+
+  .card__speciesItem--number {
+    font-family: var(--font-gill-sans);
+    font-size: 0;
+    line-height: 0;
+  }
+
+  .card__speciesItem--species {
+    letter-spacing: 0.45px;
+  }
+
+  /* Radiant variant — holographic rule banner below the strip */
+  .card__speciesStripRadiant {
+    background: linear-gradient(
+      90deg,
+      rgb(from #ffb6c1 r g b / 50%),
+      rgb(from #c8e6ff r g b / 50%),
+      rgb(from #fafad2 r g b / 50%)
+    );
+    inline-size: 100%;
+    inset-block-start: 100%;
+    padding-block: 0.3rem;
+    padding-inline: 1rem;
+    position: relative;
+  }
+
+  .card__speciesStripRadiantLabel {
+    color: #201e1f;
+    font-family: var(--font-gill-sans);
+    font-weight: 700;
+  }
+
+  .card__speciesStripRadiantText {
+    color: #201e1f;
+    font-family: var(--font-gill-sans);
+    font-size: 1rem;
+  }
+}
