@@ -500,45 +500,8 @@
 }
 
 /* ============================================================
-   Type — reusable energy-type badge
-   Variant styling is driven by `data-type` so the TSX stays lean.
+   Type — badge size variants (badge internals live in TypeBadge.css)
    ============================================================ */
-
-.type {
-  @apply relative;
-  block-size: 38px;
-  inline-size: 38px;
-}
-
-.type__ring {
-  @apply absolute;
-  inset: -3.95%;
-}
-
-.type__symbol {
-  @apply absolute;
-}
-
-.type[data-type="Normal"] .type__symbol    { inset: 10.53% 15.81%; }
-.type[data-type="Fire"] .type__symbol      { inset: 7.89% 10.53%; }
-.type[data-type="Grass"] .type__symbol     { inset: 7.89% 13.16% 10.53% 13.16%; }
-.type[data-type="Water"] .type__symbol     { inset: 15.79% 18.42% 17.09% 15.79%; }
-.type[data-type="Lightning"] .type__symbol { inset: 10.53% 21.05%; }
-.type[data-type="Fighting"] .type__symbol  { inset: 15.79% 18.42% 15.79% 21.05%; }
-.type[data-type="Psychic"] .type__symbol   { inset: 26.32% 28.95% 31.58% 28.95%; }
-.type[data-type="Metal"] .type__symbol     { inset: 18.42% 13.3% 15.79% 11.84%; }
-.type[data-type="Dragon"] .type__symbol    { inset: 15.79% 17.11% 15.79% 15.79%; }
-.type[data-type="Darkness"] .type__symbol  { inset: 18.43% 13.16% 20.57% 13.16%; }
-
-.type__symbolGrassShadow {
-  @apply absolute;
-  inset: -16.13% -17.86%;
-}
-
-.type__psychicExtra {
-  @apply absolute;
-  inset: 18.42% 7.89%;
-}
 
 /* Small (23 px) type variant used inside the battle bar */
 .type--small {
