@@ -1,0 +1,30 @@
+@reference "../../../index.css";
+
+@scope (.attackEnergy) {
+  :scope {
+    @apply relative;
+    block-size: 40px;
+    inline-size: 172px;
+  }
+
+  .attackEnergy__slot {
+    @apply absolute;
+    block-size: 38px;
+    inline-size: 38px;
+    inset-block-end: 1px;
+  }
+
+  :scope[data-count="1"] .attackEnergy__slot:nth-child(1) {
+    inset-inline-start: 1px;
+  }
+
+  :scope[data-count="2"] .attackEnergy__slot:nth-child(1) {
+    inset-inline-start: calc(50% - 66px);
+    transform: translateX(-50%);
+  }
+
+  :scope[data-count="2"] .attackEnergy__slot:nth-child(2) {
+    inset-inline-start: calc(50% - 22px);
+    transform: translateX(-50%);
+  }
+}

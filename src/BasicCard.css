@@ -480,37 +480,6 @@
 }
 
 /* ============================================================
-   Attack energy — row of 1 or 2 type icons preceding an attack
-   ============================================================ */
-
-.attackEnergy {
-  @apply relative;
-  block-size: 40px;
-  inline-size: 172px;
-}
-
-.attackEnergy__slot {
-  @apply absolute;
-  block-size: 38px;
-  inline-size: 38px;
-  inset-block-end: 1px;
-}
-
-.attackEnergy[data-count="1"] .attackEnergy__slot:nth-child(1) {
-  inset-inline-start: 1px;
-}
-
-.attackEnergy[data-count="2"] .attackEnergy__slot:nth-child(1) {
-  inset-inline-start: calc(50% - 66px);
-  transform: translateX(-50%);
-}
-
-.attackEnergy[data-count="2"] .attackEnergy__slot:nth-child(2) {
-  inset-inline-start: calc(50% - 22px);
-  transform: translateX(-50%);
-}
-
-/* ============================================================
    Attack — name + optional description + damage + energy
    ============================================================ */
 

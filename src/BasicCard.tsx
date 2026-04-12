@@ -4,29 +4,12 @@ import imgBg from "./assets/imgBg.png";
 import imgPortraitImage from "./assets/imgPortraitImage.png";
 import "./BasicCard.css";
 import type { TypeName } from "./components/card/types";
+import { AttackEnergy } from "./components/card/AttackEnergy/AttackEnergy";
 import { HpBadge } from "./components/card/HpBadge/HpBadge";
 import { RarityMark } from "./components/card/RarityMark/RarityMark";
 import { RegulationMark } from "./components/card/RegulationMark/RegulationMark";
 import { SetMark } from "./components/card/SetMark/SetMark";
 import { StagePill } from "./components/card/StagePill/StagePill";
-import { TypeBadge } from "./components/card/TypeBadge/TypeBadge";
-
-interface IAttackEnergyProps {
-  className?: string;
-  count: 1 | 2;
-  type?: TypeName;
-}
-
-function AttackEnergy({ className, count, type = "Normal" }: IAttackEnergyProps) {
-  const slots = Array.from({ length: count }, (_, i) => i);
-  return (
-    <div className={className || "attackEnergy"} data-count={count}>
-      {slots.map((i) => (
-        <TypeBadge key={i} className={"attackEnergy__slot"} type={type} />
-      ))}
-    </div>
-  );
-}
 
 interface IAttackProps {
   name: string;
