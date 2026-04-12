@@ -5,6 +5,7 @@ import "./BasicCard.css";
 import { Attack } from "./components/card/Attack/Attack";
 import { BattleBar } from "./components/card/BattleBar/BattleBar";
 import { BottomRow } from "./components/card/BottomRow/BottomRow";
+import { CardSurface } from "./components/card/CardSurface/CardSurface";
 import { NameHeader } from "./components/card/NameHeader/NameHeader";
 import { PortraitFrame } from "./components/card/PortraitFrame/PortraitFrame";
 import { SpeciesStrip } from "./components/card/SpeciesStrip/SpeciesStrip";
@@ -20,21 +21,7 @@ export default function BasicCard({ className, attackFrame = null, portrait = nu
   return (
     <div className={className || "card"} data-name="Basic Card">
       {/* Card base: outer yellow border + inner surface with bg/overlay/holo */}
-      <div className={"card__border"} data-name="Border" />
-      <div className={"card__surface"} data-name="Surface">
-        <div aria-hidden="true" className={"card__surfaceBase"} />
-        <div className={"card__surfaceBg"} data-name="BG">
-          <img alt="" className={"card__surfaceBgImg"} src={imgBg} />
-        </div>
-        <div className={"card__surfaceOverlay"} data-name="Overlay" />
-        <div className={"card__surfaceHolo"} data-name="Holo">
-          <div
-            className={"card__surfaceHoloLayer"}
-            style={{ maskImage: `url('${imgRectangle12}')` }}
-          />
-        </div>
-        <div className={"card__surfaceInsetShadow"} />
-      </div>
+      <CardSurface bgSrc={imgBg} holoMaskSrc={imgRectangle12} />
 
       {/* Bottom metadata row (copyright, illustrator, rarity, number, flavor, set mark) */}
       <BottomRow
