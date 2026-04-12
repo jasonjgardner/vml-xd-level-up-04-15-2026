@@ -8,6 +8,7 @@ import { HpBadge } from "./components/card/HpBadge/HpBadge";
 import { RarityMark } from "./components/card/RarityMark/RarityMark";
 import { RegulationMark } from "./components/card/RegulationMark/RegulationMark";
 import { SetMark } from "./components/card/SetMark/SetMark";
+import { StagePill } from "./components/card/StagePill/StagePill";
 import { TypeBadge } from "./components/card/TypeBadge/TypeBadge";
 
 interface IAttackEnergyProps {
@@ -443,78 +444,11 @@ export default function BasicCard({ className, attackFrame = null, portrait = nu
       <p className={"card__name"}>Smeargle</p>
 
       {/* Stage pill (BASIC) */}
-      <div className={"card__stage"} data-name="Stage">
-        <div className={"card__stageShadow"}>
-          <svg className={"card__svgFill"} fill="none" preserveAspectRatio="none" viewBox="0 0 109 37">
-            <g filter="url(#filter0_d_1_543)">
-              <path d={svgPaths.p1ac5e700} fill="url(#paint0_linear_1_543)" />
-            </g>
-            <defs>
-              <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="37" id="filter0_d_1_543" width="109" x="0" y="0">
-                <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                <feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-                <feOffset dx="1" dy="1" />
-                <feGaussianBlur stdDeviation="1" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" />
-                <feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow_1_543" />
-                <feBlend in="SourceGraphic" in2="effect1_dropShadow_1_543" mode="normal" result="shape" />
-              </filter>
-              <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_1_543" x1="53.5" x2="53.5" y1="1" y2="34">
-                <stop stopColor="#FEFFFF" />
-                <stop offset="0.0935292" stopColor="#FEFFFF" />
-                <stop offset="0.182883" stopColor="#BDBCC1" />
-                <stop offset="0.272236" stopColor="#FEFFFF" />
-                <stop offset="0.544999" stopColor="#FEFFFF" />
-                <stop offset="0.838956" stopColor="#969694" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <div className={"card__stageLetters"}>
-          <StageLetter x="calc(50% - 31.81px)" y="calc(50% - 0.98px)" width={18.928} height={12.988} path={svgPaths.p2e78e8c0} viewBox="0 0 20.7568 14.9883" insetClass="inset-[-7.7%_-5.28%_-7.7%_-4.38%]" />
-          <StageLetter x="calc(50% + 6.07px)" y="calc(50% - 0.99px)" width={17.996} height={12.981} path={svgPaths.p19191e00} viewBox="0 0 19.9246 14.9808" insetClass="inset-[-7.7%_-5.56%_-7.7%_-5.16%]" />
-          <StageLetter x="calc(50% - 14.3px)" y="calc(50% - 0.97px)" width={19.727} height={12.958} path={svgPaths.pd4b4c00} viewBox="0 0 21.2712 14.958" insetClass="inset-[-7.72%_-5.07%_-7.72%_-2.76%]" />
-          <StageLetter x="calc(50% + 30.93px)" y="calc(50% - 0.97px)" width={17.596} height={12.993} path={svgPaths.p31405800} viewBox="0 0 19.5956 14.9931" insetClass="inset-[-7.7%_-5.68%]" />
-          <StageLetter x="calc(50% + 18.18px)" y="calc(50% - 0.97px)" width={6.914} height={12.984} path={svgPaths.p1b4a0270} viewBox="0 0 8.64056 14.9836" insetClass="inset-[-7.7%_-14.46%_-7.7%_-10.5%]" />
-        </div>
-      </div>
+      <StagePill stage="basic" />
 
       {/* Portrait (optional custom overlay) */}
       <div className={"card__portrait"} data-name="Portrait">
         {portrait || null}
-      </div>
-    </div>
-  );
-}
-
-interface IStageLetterProps {
-  x: string;
-  y: string;
-  width: number;
-  height: number;
-  path: string;
-  viewBox: string;
-  insetClass: string;
-}
-
-function StageLetter({ x, y, width, height, path, viewBox, insetClass }: IStageLetterProps) {
-  return (
-    <div
-      className={"card__stageLetter"}
-      style={{
-        blockSize: `${height}px`,
-        inlineSize: `${width}px`,
-        insetBlockStart: y,
-        insetInlineStart: x,
-        position: "absolute",
-        transform: "translate(-50%, -50%)",
-      }}
-    >
-      <div className={`absolute ${insetClass}`}>
-        <svg className={"card__svgFill"} fill="none" preserveAspectRatio="none" viewBox={viewBox}>
-          <path d={path} fill="#545454" stroke="white" />
-        </svg>
       </div>
     </div>
   );

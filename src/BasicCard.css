@@ -229,31 +229,11 @@
 
 /* ---------- Stage pill (e.g. "BASIC") ---------- */
 
+/* Outer positioning lives on the card; internals are scoped in
+   components/card/StagePill/StagePill.css via @scope (.card__stage). */
 .card__stage {
   @apply absolute;
   inset: 4.3% 82.67% 92.48% 3%;
-}
-
-.card__stageShadow {
-  @apply absolute;
-  inset-block-end: -9.09%;
-  inset-block-start: -3.03%;
-  inset-inline-end: -2.86%;
-  inset-inline-start: -0.95%;
-}
-
-.card__stageLetters {
-  @apply absolute overflow-clip;
-  inset: 18.14% 5.69% 18.36% 4.27%;
-}
-
-.card__stageLetter {
-  @apply absolute;
-  transform: translate(-50%, -50%);
-}
-
-.card__stageLetterShadow {
-  @apply absolute;
 }
 
 /* ---------- Attack frame (slot for Pokémon's attacks) ---------- */

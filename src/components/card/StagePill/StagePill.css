@@ -1,0 +1,54 @@
+@reference "../../../index.css";
+
+@scope (.card__stage) {
+  :scope {
+    block-size: 100%;
+    inline-size: 100%;
+    position: relative;
+  }
+
+  .card__stageShadow {
+    @apply absolute;
+    inset-block-end: -9.09%;
+    inset-block-start: -3.03%;
+    inset-inline-end: -2.86%;
+    inset-inline-start: -0.95%;
+  }
+
+  .card__stageLetters {
+    @apply absolute overflow-clip;
+    inset: 18.14% 5.69% 18.36% 4.27%;
+  }
+
+  .card__stageLetter {
+    @apply absolute;
+    transform: translate(-50%, -50%);
+  }
+
+  .card__stageLabel {
+    color: #545454;
+    font-family: var(--font-gill-sans);
+    font-size: 1.1rem;
+    font-weight: 700;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    position: absolute;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%);
+  }
+
+  .card__stageEvolvesFrom {
+    color: #000;
+    font-family: var(--font-gill-sans);
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .card__stageEvolvesFromPortrait {
+    aspect-ratio: 1;
+    inline-size: 4rem;
+    overflow: hidden;
+    position: relative;
+  }
+}
