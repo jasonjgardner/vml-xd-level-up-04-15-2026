@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react-vite";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import "../src/index.css";
+import "../src/components/card/svg-utils.css";
 
 const preview: Preview = {
   parameters: {

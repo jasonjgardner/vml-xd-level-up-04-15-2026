@@ -1,5 +1,6 @@
 import svgPaths from "../../../../svg-2xxt8uep3y";
 import type { SpeciesStripVariant } from "../types";
+import { RadiantRuleBanner } from "./RadiantRuleBanner";
 import "./SpeciesStrip.css";
 
 export interface ISpeciesStripProps {
@@ -135,10 +136,9 @@ export function SpeciesStrip({
         <p className={"card__speciesItem"}>WT: {weight}</p>
       </div>
 
-      {variant === "radiant" && radiantRuleText && (
-        <div className={"card__speciesStripRadiant"} data-name="Radiant Rule">
-          <p className={"card__speciesStripRadiantLabel"}>Radiant Pokémon Rule</p>
-          <p className={"card__speciesStripRadiantText"}>{radiantRuleText}</p>
+      {variant === "radiant" && (
+        <div className={"card__speciesStripRadiant"}>
+          <RadiantRuleBanner text={radiantRuleText} />
         </div>
       )}
     </div>

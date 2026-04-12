@@ -35,11 +35,11 @@ export const SMEARGLE_DATA: ICardData = {
   speciesStripVariant: "default",
   pokedexNumber: 235,
   category: "Painter Pokémon",
-  height: "3´11´´",
+  height: "3'11\"",
   weight: "127.9 lbs.",
 
   regulationMark: "F",
-  copyright: "©2022 Pokémon / Nintendo / Creatures / GAME FREAK ",
+  copyright: `©${new Date().getFullYear()} Pokémon / Nintendo / Creatures / GAME FREAK `,
   illustrator: "Illus. Mizue",
   rarityShape: "common",
   rarityFill: "black",

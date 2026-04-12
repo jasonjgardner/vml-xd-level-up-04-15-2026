@@ -12,9 +12,10 @@
 
 /* Default size + position for standalone `.type` (no slot class). */
 :where(.type) {
+  aspect-ratio: 1;
   position: relative;
-  block-size: 38px;
-  inline-size: 38px;
+  block-size: min(1lh, 38px);
+  inline-size: min(1lh, 38px);
 }
 
 @scope (.type) {

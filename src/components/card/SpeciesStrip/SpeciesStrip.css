@@ -43,30 +43,10 @@
     letter-spacing: 0.45px;
   }
 
-  /* Radiant variant — holographic rule banner below the strip */
   .card__speciesStripRadiant {
-    background: linear-gradient(
-      90deg,
-      rgb(from #ffb6c1 r g b / 50%),
-      rgb(from #c8e6ff r g b / 50%),
-      rgb(from #fafad2 r g b / 50%)
-    );
     inline-size: 100%;
     inset-block-start: 100%;
-    padding-block: 0.3rem;
-    padding-inline: 1rem;
-    position: relative;
+    position: absolute;
   }
 
-  .card__speciesStripRadiantLabel {
-    color: #201e1f;
-    font-family: var(--font-gill-sans);
-    font-weight: 700;
-  }
-
-  .card__speciesStripRadiantText {
-    color: #201e1f;
-    font-family: var(--font-gill-sans);
-    font-size: 1rem;
-  }
 }

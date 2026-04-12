@@ -1,0 +1,13 @@
+@reference "../../index.css";
+
+/* Shared SVG sizing utilities used across all card sub-components.
+   Extracted from BasicCard.css so stories render correctly in isolation. */
+
+.card__svgFill {
+  @apply block size-full;
+}
+
+.card__svgAbsFill {
+  @apply absolute block size-full;
+  inset: 0;
+}
