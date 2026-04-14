@@ -41,6 +41,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Pokémon card */
+  --card-ink: #000000;
+  --card-dark: #434345;
+  --card-ability: #9c1821;
+  --card-border-fill: #ffe165;
+  --card-portrait-bg: #d9d9d9;
+  --card-surface-tint: #cdc8c4;
 }
 
 .dark {
@@ -119,6 +127,12 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-card-ink: var(--card-ink);
+  --color-card-dark: var(--card-dark);
+  --color-card-ability: var(--card-ability);
+  --color-card-border-fill: var(--card-border-fill);
+  --color-card-portrait-bg: var(--card-portrait-bg);
+  --color-card-surface-tint: var(--card-surface-tint);
 }
 
 @layer base {

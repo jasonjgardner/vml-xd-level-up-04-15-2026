@@ -45,7 +45,7 @@
 
   .card__retreatLabel {
     @apply absolute whitespace-nowrap;
-    color: #434345;
+    color: var(--card-dark);
     font-family: var(--font-gill-sans);
     font-size: 14px;
     font-style: normal;
@@ -76,7 +76,7 @@
 
   .card__battleText {
     @apply absolute whitespace-nowrap;
-    color: #434345;
+    color: var(--card-dark);
     font-style: normal;
     line-height: normal;
   }

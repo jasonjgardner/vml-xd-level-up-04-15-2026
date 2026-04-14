@@ -20,7 +20,7 @@
 
   .card__speciesStripText {
     @apply absolute content-stretch flex gap-[11px] items-center justify-center overflow-clip whitespace-nowrap;
-    color: #434345;
+    color: var(--card-dark);
     font-style: normal;
     inset: 28.57% 10.97% 17.86% 9.37%;
     line-height: normal;

@@ -97,7 +97,7 @@
       mask-mode: alpha;
       mask-position: 0 0;
       mask-repeat: repeat;
-      mask-size: var(--holo-tile-size) auto;
+      mask-size: var(--holo-tile-size, 20% auto);
       pointer-events: none;
       position: absolute;
     }
@@ -134,7 +134,7 @@
         );
       mask-position: 0 0, center center;
       mask-repeat: repeat, no-repeat;
-      mask-size: var(--holo-tile-size) auto, cover;
+      mask-size: var(--holo-tile-size, 20% auto), cover;
       mix-blend-mode: plus-lighter;
       opacity: var(--holo-card-opacity);
     }
@@ -173,4 +173,5 @@
       transition: none;
     }
   }
+
 }

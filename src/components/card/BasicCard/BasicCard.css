@@ -21,7 +21,7 @@
 
 .card__border {
   @apply absolute rounded-[35px];
-  background: #ffe165;
+  background: var(--card-border-fill);
   inset: 0;
 }
 
@@ -91,7 +91,7 @@
 
 .card__name {
   @apply absolute;
-  color: #000;
+  color: var(--card-ink);
   font-family: var(--font-gill-sans);
   font-size: 49px;
   font-style: normal;

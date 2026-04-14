@@ -1,0 +1,14 @@
+@reference "../../../index.css";
+
+/* ============================================================
+   WebCamCard — selfie-mirror the live video in the portrait
+   slot. Base `object-cover` sizing is already applied to all
+   `<video>` children of `.card__portraitSlot` by PortraitFrame.
+   ============================================================ */
+
+@scope (.card__portraitSlot) {
+  .web-cam-card__video {
+    /* Mirror horizontally so the feed reads as a selfie. */
+    transform: scaleX(-1);
+  }
+}

@@ -11,8 +11,8 @@
 
 @scope (.card__bottom) {
   .card__copyright {
-    @apply absolute;
-    color: #000;
+    @apply absolute text-center;
+    color: var(--card-ink);
     font-family: var(--font-gill-sans);
     font-size: 12.7px;
     font-style: normal;
@@ -25,7 +25,7 @@
 
   .card__illustrator {
     @apply absolute;
-    color: #000;
+    color: var(--card-ink);
     font-family: var(--font-gill-sans);
     font-size: 17px;
     font-style: normal;
@@ -36,7 +36,7 @@
 
   .card__number {
     @apply absolute whitespace-nowrap;
-    color: #000;
+    color: var(--card-ink);
     font-family: var(--font-gill-sans);
     font-size: 19px;
     font-style: normal;
@@ -46,7 +46,7 @@
 
   .card__flavor {
     @apply absolute text-right;
-    color: #434345;
+    color: var(--card-dark);
     font-family: var(--font-gill-sans);
     font-size: 19px;
     font-style: normal;

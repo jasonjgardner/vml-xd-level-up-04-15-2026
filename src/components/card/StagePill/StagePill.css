@@ -93,7 +93,7 @@
   /* "Evolves from Pokemon" italic text on the ribbon. */
   .card__stageEvolvesFrom {
     @apply absolute whitespace-nowrap;
-    color: #000;
+    color: var(--card-ink);
     font-family: var(--font-gill-sans);
     line-height: 1;
     font-size: 18px;
