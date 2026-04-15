@@ -21,7 +21,7 @@
   .card__hpText {
     @apply absolute flex flex-col justify-center text-right;
     block-size: 40px;
-    color: #000;
+    color: var(--card-ink);
     font-family: var(--font-gill-sans);
     font-size: 0;
     font-style: normal;

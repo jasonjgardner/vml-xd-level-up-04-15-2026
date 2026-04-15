@@ -93,8 +93,9 @@ export function HolographicCard({
   };
 
   const foilStyle = {
-    "--pokeball-outer": `url('${pokeballOuter}')`,
-    "--pokeball-inner": `url('${pokeballInner}')`,
+    "--pokeball-outer": glareMask ?? `url('${pokeballOuter}')`,
+    "--pokeball-inner": glareMask ?? `url('${pokeballInner}')`,
+    ...(glareMask ? { "--holo-tile-size": "cover" } : {}),
   } as CSSProperties;
 
   return (

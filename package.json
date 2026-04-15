@@ -11,6 +11,7 @@
     "build-storybook": "storybook build -o storybook-static"
   },
   "dependencies": {
+    "@huggingface/transformers": "^4.0.1",
     "bun-plugin-tailwind": "^0.1.2",
     "hover-tilt": "^1.0.0",
     "react": "^19",

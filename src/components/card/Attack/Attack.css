@@ -9,7 +9,7 @@
   .attack__name {
     @apply absolute text-center;
     block-size: 40px;
-    color: #000;
+    color: var(--card-ink);
     font-family: var(--font-gill-sans);
     font-size: 39px;
     font-style: normal;
@@ -23,7 +23,7 @@
   .attack__description {
     @apply absolute;
     block-size: 82px;
-    color: #000;
+    color: var(--card-ink);
     font-family: var(--font-gill-sans);
     font-size: 26px;
     font-style: normal;
@@ -36,7 +36,7 @@
   .attack__damage {
     @apply absolute text-right;
     block-size: 40px;
-    color: #000;
+    color: var(--card-ink);
     font-family: var(--font-gill-sans);
     font-size: 39px;
     font-style: normal;
@@ -78,11 +78,11 @@
     @apply inline-block rounded-full text-white font-bold;
     padding: 0.15rem 0.5rem;
     font-size: 1rem;
-    background: #9c1821;
+    background: var(--card-ability);
   }
 
   .attack__abilityName {
-    color: #9c1821;
+    color: var(--card-ability);
     font-family: var(--font-gill-sans);
     font-weight: 700;
   }

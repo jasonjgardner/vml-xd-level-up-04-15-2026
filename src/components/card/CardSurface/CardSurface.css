@@ -16,7 +16,7 @@
 
   .card__surfaceBase {
     @apply absolute pointer-events-none rounded-[10px];
-    background: white;
+    background: var(--background);
     inset: 0;
   }
 
@@ -35,7 +35,7 @@
 
   .card__surfaceOverlay {
     @apply absolute;
-    background: var(--card-surface-tint, #cdc8c4);
+    background: var(--card-surface-tint);
     inset: 0;
     mix-blend-mode: hard-light;
   }
